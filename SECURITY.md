@@ -2,20 +2,60 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
-
 | Version | Supported          |
 | ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| 0.1.x   | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+We take security seriously in Seven Tentacles, especially given our educational focus on children ages 8-18.
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+### How to Report
+
+1. **Do NOT open a public issue** for security vulnerabilities
+2. Email security concerns to: [security contact to be added]
+3. Use subject line: `[SECURITY] Seven Tentacles Vulnerability Report`
+
+### What to Include
+
+- Description of the vulnerability
+- Steps to reproduce
+- Potential impact assessment
+- Any suggested remediation (optional)
+
+### Response Timeline
+
+- **Initial Response:** Within 48 hours
+- **Assessment:** Within 7 days
+- **Resolution:** Dependent on severity, typically within 30 days
+
+### Scope
+
+Security concerns relevant to this project include:
+
+- **Data privacy:** Any exposure of learner data
+- **Content safety:** Inappropriate content injection
+- **Authentication/Authorization:** If/when user accounts are implemented
+- **Dependency vulnerabilities:** In npm packages or other dependencies
+
+### Safe Harbor
+
+We support responsible disclosure. Security researchers acting in good faith:
+
+- Will not face legal action for their research
+- Will be credited (if desired) when vulnerabilities are fixed
+- Are encouraged to work with us on remediation
+
+## Security Best Practices
+
+When contributing to Seven Tentacles:
+
+1. Never commit secrets, API keys, or credentials
+2. Keep dependencies updated
+3. Follow the principle of least privilege
+4. Sanitize all user inputs
+5. Use Content Security Policy headers in web components
+
+## Contact
+
+For security inquiries: [Contact information to be added]

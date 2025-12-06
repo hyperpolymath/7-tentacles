@@ -1,0 +1,47 @@
+# Seven Tentacles Git Attributes
+# RSR Compliant Configuration
+
+# Auto detect text files and normalize line endings
+* text=auto
+
+# Documentation
+*.adoc text
+*.md text
+*.txt text
+
+# Source code
+*.res text
+*.js text
+*.ts text
+*.html text
+*.css text
+*.json text
+
+# Configuration
+*.yml text
+*.yaml text
+*.nix text
+*.toml text
+
+# Scripts
+*.sh text eol=lf
+Justfile text eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.svg text
+*.ico binary
+
+# Archives
+*.zip binary
+*.tar binary
+*.gz binary
+
+# Fonts
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
