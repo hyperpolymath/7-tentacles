@@ -1,134 +1,76 @@
-= Seven Tentacles
-:toc: left
-:toclevels: 3
+= 7-tentacles
+Jonathan D.A. Jewell <jonathan.jewell@gmail.com>
+:toc: macro
 :icons: font
 :source-highlighter: rouge
+:experimental:
+:url-github: https://github.com/hyperpolymath/7-tentacles
+:url-gitlab: https://gitlab.com/hyperpolymath/7-tentacles
+:url-bitbucket: https://bitbucket.org/hyperpolymath/7-tentacles
+:url-codeberg: https://codeberg.org/hyperpolymath/7-tentacles
 
-*Teaching Compiler Architecture to Ages 8-18 Through Progressive Reveal & Playful Mascots*
+Distributed agent orchestration with octopus-inspired neural pathways
 
-image::assets/mascots/octopus.svg[Seven Tentacles Logo,200,align="center"]
+image:https://img.shields.io/badge/RSR-Certified-gold[RSR Certified]
+image:https://img.shields.io/badge/License-AGPL%20v3-blue[License]
 
-== The Vision
+toc::[]
 
-Seven Tentacles is a *radically innovative 10-year learning framework* that teaches university and graduate-level compiler architecture concepts to children aged 8-18 without them realizing it.
+== Overview
 
-=== The Core Insight
+7-tentacles is part of the link:https://rhodium.sh[Rhodium Standard] (RSR) ecosystem.
 
-Kids learn by playing games with colorful mascots. At age 8, they meet "Speedy Red" and play racing games. At age 16, they discover that "Speedy Red" has been teaching them about recursive descent parsing, and Red now goes by "Performance Agent Red." They've been learning compilers for 8 years without noticing.
+Domain: *distributed-systems*
 
-=== The Stack
-
-* **7 cephalopod mascots** (octopus agents) — each teaches one compiler component
-* **4 language dialects** (Me, Solo, Duet, Ensemble) — matching their age/maturity
-* **Progressive reveal system** — concepts introduced as games, revealed as CS
-* **10-year narrative journey** — Cuttle → Squidlet → Duet → Octopus
-
-=== Target Outcome
-
-16-year-olds with *graduate-level understanding* of:
-
-* Parsing & lexical analysis
-* Concurrency & async/await
-* Type systems & affine types
-* AST construction & manipulation
-* Audit trails & verification
-* Compile-time evaluation
-* Language governance & policy enforcement
-
-== The Seven Agents
-
-[cols="1,2,3"]
-|===
-|Agent |Role |Teaches
-
-|🔴 Red |The Parser |Lexical analysis → Parsing → Syntax trees
-|🟠 Orange |The Concurrency Engine |Async/await, scheduling, event loops
-|🟡 Yellow |The Type System |Type systems, affine types, memory safety
-|🟢 Green |The AST Architect |Abstract syntax trees, code representation
-|🔵 Blue |The Auditor |Verification, auditing, tracing, debugging
-|🟣 Indigo |The Metaprogrammer |Compile-time evaluation, macros, reflection
-|🟤 Violet |The Governance System |Language design, policy enforcement, ethics
-|===
-
-== The Cephalopod Journey
-
-[horizontal]
-🐚 Cuttle (8-12):: Baby cuttlefish. One tentacle at a time. Visual "Me Language."
-🦑 Squidlet (13-14):: Adolescent squid. Names change. CS concepts emerge.
-🦑🦑 Duet (15):: Two squid dancing. Explicit agent collaboration.
-🐙 Octopus (16+):: Full orchestration. Build complete compilers.
-
-== Quick Start
+== Installation
 
 [source,bash]
 ----
-# Clone the repository
-git clone https://gitlab.com/hyperpolymath/seven-tentacles.git
-cd seven-tentacles
+# Clone from GitHub (primary)
+git clone {url-github}
 
-# Enter development environment
-nix develop  # or: guix shell -D -f guix.scm
-
-# Build everything
-just build
-
-# Run the reveal demo
-just demo
-
-# Run tests
-just test
+# Or from mirrors
+git clone {url-gitlab}
+git clone {url-codeberg}
 ----
 
-== Project Structure
+== RSR Stack
 
-[source]
-----
-seven-tentacles/
-├── curriculum/           # All lesson content
-│   ├── cuttle/          # Ages 8-12 (140+ lessons)
-│   ├── squidlet/        # Ages 13-14 (210+ lessons)
-│   ├── duet/            # Age 15 (70+ lessons)
-│   └── octopus/         # Ages 16+ (advanced projects)
-├── languages/           # Language implementations
-│   ├── me-language/     # Visual Blockly-like
-│   ├── solo-language/   # Text with affine types
-│   ├── duet-language/   # Two-party protocols
-│   └── ensemble-language/ # Full orchestration
-├── agents/              # ReScript agent definitions
-├── tools/               # Reveal system, lesson player
-├── assets/              # Mascots, sprites, sounds
-├── docs/                # Pedagogy, teacher guides
-├── tests/               # Curriculum tests
-└── examples/            # Playable demos
-----
+This project follows RSR conventions:
 
-== Documentation
+* ✅ ReScript for frontend/logic
+* ✅ Deno for JS runtime
+* ✅ WASM for performance-critical code
+* ✅ Rust/OCaml/Haskell for systems/proofs
+* ✅ Guile/Scheme for configuration
+* ❌ No TypeScript
+* ❌ No Go
+* ❌ No npm
 
-* link:VISION.adoc[VISION.adoc] — Complete pedagogical framework
-* link:docs/PEDAGOGY.adoc[PEDAGOGY.adoc] — Learning science research
-* link:docs/AGENT_INTERVIEWS.adoc[AGENT_INTERVIEWS.adoc] — Agent personalities
-* link:docs/TEACHER_GUIDE.adoc[TEACHER_GUIDE.adoc] — Classroom usage
+== Mirrors
 
-== Contributing
+[cols="1,2"]
+|===
+| Platform | URL
 
-We welcome contributions! Please see our link:CONTRIBUTING.adoc[contribution guidelines].
-
-=== Priority Areas
-
-1. **Curriculum content** — Writing lessons for all 7 agents
-2. **Language implementations** — Me, Solo, Duet, Ensemble
-3. **Mascot art** — SVG illustrations for all agents
-4. **Accessibility** — WCAG 2.1 AA compliance
-5. **Translations** — Making it global
+| GitHub (primary) | {url-github}
+| GitLab | {url-gitlab}
+| Bitbucket | {url-bitbucket}
+| Codeberg | {url-codeberg}
+|===
 
 == License
 
-This project is licensed under the GNU Affero General Public License v3.0 (AGPL-3.0).
+Licensed under AGPL-3.0-or-later OR LicenseRef-Palimpsest-0.5.
 
-== Acknowledgments
+See link:LICENSE[LICENSE] for details.
 
-Designed by Jonathan D.A. Jewell with contributions from the global CS education community.
+== Contributing
 
----
+See link:CONTRIBUTING.adoc[CONTRIBUTING.adoc].
 
-_"The Seven Tentacles framework combines pedagogical innovation, narrative design, and formal CS concepts into a unified system. This is not just another educational game — it's a 10-year learning journey that secretly teaches graduate-level concepts."_
+== Metadata
+
+* Domain: distributed-systems
+* Framework: RSR (Rhodium Standard Repository)
+* Dublin Core: link:.well-known/dc.xml[.well-known/dc.xml]
