@@ -9,3 +9,9 @@
 When asked to add npm packages, use Deno alternatives:
 - `npm install X` → Add to import_map.json or use npm: specifier
 - `npm run X` → `deno task X`
+
+## Language Policy (RSR)
+
+- **REQUIRED**: ReScript for all JS-target code
+- **FORBIDDEN**: New TypeScript/JavaScript files
+- **ALLOWED**: Generated .res.js files
