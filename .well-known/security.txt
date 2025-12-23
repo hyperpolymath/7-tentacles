@@ -1,8 +1,0 @@
-# Seven Tentacles Security Contact
-# See https://securitytxt.org/ for specification
-
-Contact: mailto:security@example.com
-Expires: 2026-12-31T23:59:59.000Z
-Preferred-Languages: en
-Canonical: https://github.com/Hyperpolymath/7-tentacles/.well-known/security.txt
-Policy: https://github.com/Hyperpolymath/7-tentacles/blob/main/SECURITY.md
