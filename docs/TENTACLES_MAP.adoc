@@ -278,6 +278,153 @@ INV-53:: Acceptance criteria: goal alignment, code quality, documentation, acces
 └─────────────────────────────────────────────────────────────┘
 ----
 
+== Dependency Graph
+
+The tentacles have compile-time and runtime dependencies that reflect real compiler architecture.
+
+=== Visual Dependency Graph
+
+[source]
+----
+                           ┌────────────────────────────────────────┐
+                           │          🟤 VIOLET (Governance)        │
+                           │   Cross-cutting: defines language rules │
+                           │     that all other agents must follow   │
+                           └────────────────────────────────────────┘
+                                              │
+                      ┌───────────────────────┼───────────────────────┐
+                      │                       │                       │
+                      ▼                       ▼                       ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│    ┌──────────────┐                                                         │
+│    │   🔴 RED     │◄─────────────── Source Code                             │
+│    │   Parser     │                                                         │
+│    └──────┬───────┘                                                         │
+│           │                                                                 │
+│           │ AST                                                             │
+│           │                                                                 │
+│           ▼                                                                 │
+│    ┌──────────────┐         ┌──────────────┐                                │
+│    │  🟡 YELLOW   │────────►│  🟣 INDIGO   │                                │
+│    │ Type System  │◄────────│Metaprogrammer│                                │
+│    └──────┬───────┘         └──────┬───────┘                                │
+│           │                        │                                        │
+│           │ Typed AST              │ Expanded macros                        │
+│           │                        │                                        │
+│           ▼                        ▼                                        │
+│    ┌──────────────────────────────────────┐                                 │
+│    │            🟢 GREEN                  │                                 │
+│    │          AST Architect               │                                 │
+│    │    (IR construction, transforms)     │                                 │
+│    └──────────────────┬───────────────────┘                                 │
+│                       │                                                     │
+│                       │ IR                                                  │
+│                       │                                                     │
+│                       ▼                                                     │
+│    ┌──────────────────────────────────────┐                                 │
+│    │            🔵 BLUE                   │                                 │
+│    │            Auditor                   │                                 │
+│    │   (verification, formal proofs)      │                                 │
+│    └──────────────────┬───────────────────┘                                 │
+│                       │                                                     │
+│                       │ Verified IR                                         │
+│                       │                                                     │
+│                       ▼                                                     │
+│    ┌──────────────────────────────────────┐                                 │
+│    │           🟠 ORANGE                  │                                 │
+│    │       Concurrency Engine             │                                 │
+│    │  (scheduling, parallel execution)    │                                 │
+│    └──────────────────┬───────────────────┘                                 │
+│                       │                                                     │
+│                       ▼                                                     │
+│                  Executable                                                 │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+----
+
+=== Dependency Matrix
+
+[cols="1,1,6"]
+|===
+|Tentacle |Depends On |Relationship
+
+|🔴 Red
+|_(none)_
+|Entry point. Takes raw source code, produces AST. No compiler dependencies.
+
+|🟡 Yellow
+|🔴 Red
+|Receives AST from Red. Performs type checking, inference, and affine type analysis.
+
+|🟣 Indigo
+|🔴 Red, 🟡 Yellow
+|Bidirectional with Yellow. Expands macros on AST, may trigger re-typing.
+
+|🟢 Green
+|🟡 Yellow, 🟣 Indigo
+|Receives typed, macro-expanded AST. Constructs IR and performs transformations.
+
+|🔵 Blue
+|🟢 Green
+|Receives IR from Green. Performs verification, inserts proofs, validates invariants.
+
+|🟠 Orange
+|🔵 Blue
+|Receives verified IR. Handles concurrency, scheduling, and parallel execution.
+
+|🟤 Violet
+|_(all)_
+|Cross-cutting. Defines language rules that constrain all other agents' behavior.
+|===
+
+=== Dependency Invariants
+
+[horizontal]
+DEP-01:: Red must complete before Yellow can begin type checking
+DEP-02:: Indigo ↔ Yellow form a bidirectional loop (macro expansion may require re-typing)
+DEP-03:: Green cannot emit IR until types are fully resolved
+DEP-04:: Blue verification must pass before Orange schedules execution
+DEP-05:: Violet rules are checked at each stage transition
+DEP-06:: No circular dependencies except Indigo ↔ Yellow (controlled iteration)
+
+=== Duet Stage Pairings
+
+At the Duet stage (age 15), agents work in pairs. These pairings reflect natural dependencies:
+
+[cols="2,2,4"]
+|===
+|Pair |Agents |Collaborative Focus
+
+|Parse-Type
+|🔴 Red + 🟡 Yellow
+|How parsing decisions affect type inference
+
+|Type-Meta
+|🟡 Yellow + 🟣 Indigo
+|Typed metaprogramming and macro hygiene
+
+|Build-Verify
+|🟢 Green + 🔵 Blue
+|Constructing verifiable intermediate representations
+
+|Verify-Execute
+|🔵 Blue + 🟠 Orange
+|Verified concurrent execution
+
+|Meta-Build
+|🟣 Indigo + 🟢 Green
+|Code generation from compile-time computation
+
+|Parse-Govern
+|🔴 Red + 🟤 Violet
+|Syntax design and language governance
+
+|Govern-Execute
+|🟤 Violet + 🟠 Orange
+|Policy enforcement at runtime
+|===
+
 == Cross-References
 
 * link:../VISION.adoc[VISION.adoc] — Complete pedagogical framework
