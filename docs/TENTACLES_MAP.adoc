@@ -1,0 +1,286 @@
+// SPDX-License-Identifier: Apache-2.0
+// SPDX-FileCopyrightText: 2024 Jonathan D.A. Jewell
+
+= Tentacles → Repositories Map
+:toc:
+:toclevels: 3
+
+== Overview
+
+The Seven Tentacles are pedagogical agents (colorful cephalopod mascots) that teach compiler architecture concepts through play. Each tentacle represents one compiler component and manifests across multiple repository locations.
+
+== Tentacle → Repository Mappings
+
+[cols="1,2,3,3"]
+|===
+|Color |Compiler Role |Repository Paths |Stage Names
+
+|🔴 *Red*
+|Parser (lexing, tokenization, AST construction)
+a|
+* `agents/RedAgent.res`
+* `curriculum/cuttle/red/`
+* `curriculum/squidlet/red/`
+* `curriculum/duet/red/`
+* `curriculum/octopus/red/`
+* `tabletop/red/`
+a|
+* Cuttle: "Speedy Red"
+* Squidlet: "Fast Finder Red"
+* Duet: "Performance Agent Red"
+* Octopus: "Performance Agent Red"
+
+|🟠 *Orange*
+|Concurrency Engine (async, scheduling, event loops)
+a|
+* `agents/OrangeAgent.res`
+* `curriculum/cuttle/orange/`
+* `curriculum/squidlet/orange/`
+* `curriculum/duet/orange/`
+* `curriculum/octopus/orange/`
+* `tabletop/orange/`
+a|
+* Cuttle: "Juggler Orange"
+* Squidlet: "Event Orange"
+* Duet: "Concurrency Agent Orange"
+* Octopus: "Concurrency Orchestrator Orange"
+
+|🟡 *Yellow*
+|Type System (type safety, affine types, ownership)
+a|
+* `agents/YellowAgent.res`
+* `curriculum/cuttle/yellow/`
+* `curriculum/squidlet/yellow/`
+* `curriculum/duet/yellow/`
+* `curriculum/octopus/yellow/`
+* `tabletop/yellow/`
+a|
+* Cuttle: "Safety Yellow"
+* Squidlet: "Checker Yellow"
+* Duet: "Type System Yellow"
+* Octopus: "Safety Guarantor Yellow"
+
+|🟢 *Green*
+|AST Architect (code representation, IR, code generation)
+a|
+* `agents/GreenAgent.res`
+* `curriculum/cuttle/green/`
+* `curriculum/squidlet/green/`
+* `curriculum/duet/green/`
+* `curriculum/octopus/green/`
+* `tabletop/green/`
+a|
+* Cuttle: "Builder Green"
+* Squidlet: "Maker Green"
+* Duet: "Structure Agent Green"
+* Octopus: "Code Architecture Specialist Green"
+
+|🔵 *Blue*
+|Auditor (verification, debugging, formal proofs)
+a|
+* `agents/BlueAgent.res`
+* `curriculum/cuttle/blue/`
+* `curriculum/squidlet/blue/`
+* `curriculum/duet/blue/`
+* `curriculum/octopus/blue/`
+* `tabletop/blue/`
+a|
+* Cuttle: "Detective Blue"
+* Squidlet: "Tracker Blue"
+* Duet: "Verification Agent Blue"
+* Octopus: "Verification Oracle Blue"
+
+|🟣 *Indigo*
+|Metaprogrammer (compile-time evaluation, macros, staging)
+a|
+* `agents/IndigoAgent.res`
+* `curriculum/cuttle/indigo/`
+* `curriculum/squidlet/indigo/`
+* `curriculum/duet/indigo/`
+* `curriculum/octopus/indigo/`
+* `tabletop/indigo/`
+a|
+* Cuttle: "Magic Indigo"
+* Squidlet: "Spell Indigo"
+* Duet: "Metaprogramming Wizard Indigo"
+* Octopus: "Compile-Time Execution Master Indigo"
+
+|🟤 *Violet*
+|Governance System (language design, policy, ethics)
+a|
+* `agents/VioletAgent.res`
+* `curriculum/cuttle/violet/`
+* `curriculum/squidlet/violet/`
+* `curriculum/duet/violet/`
+* `curriculum/octopus/violet/`
+* `tabletop/violet/`
+a|
+* Cuttle: "Teacher Violet"
+* Squidlet: "Judge Violet"
+* Duet: "Language Designer Violet"
+* Octopus: "Governance Architect Violet"
+|===
+
+== Shared Components
+
+[cols="2,3,2"]
+|===
+|Path |Purpose |Type
+
+|`agents/Types.res`
+|Shared type definitions for all agents
+|ReScript
+
+|`tools/RevealSystem.res`
+|Progressive concept reveal mechanism
+|ReScript
+
+|`tools/reveal-demo.html`
+|Interactive demo of agent evolution
+|HTML
+
+|`tools/lesson-player.html`
+|Lesson playback interface
+|HTML
+
+|`languages/me-language/`
+|Four-stage language implementation
+|ReScript/Rust
+
+|`.github/workflows/`
+|CI/CD and forge propagation
+|YAML
+|===
+
+== Invariants
+
+=== Structural Invariants
+
+[horizontal]
+INV-01:: Each tentacle appears in exactly 7 colors: Red, Orange, Yellow, Green, Blue, Indigo, Violet
+INV-02:: Each tentacle has exactly 4 stage-specific names (Cuttle, Squidlet, Duet, Octopus)
+INV-03:: Agent files follow naming: `agents/{Color}Agent.res`
+INV-04:: Curriculum follows structure: `curriculum/{stage}/{color}/lesson_{n}.adoc`
+INV-05:: Tabletop games follow structure: `tabletop/{color}/{rules.adoc, cards.html}`
+
+=== Pedagogical Invariants
+
+[horizontal]
+INV-10:: Progressive reveal: same mascot at each stage, difficulty increases
+INV-11:: Age-appropriate language: no CS jargon until Squidlet stage (13+)
+INV-12:: Hidden concepts become explicit at stage transitions
+INV-13:: "AHA moment" occurs at Octopus stage (16+) when learners realize they learned compilers
+INV-14:: Every lesson includes "What You Really Learned" section (teacher reference only)
+INV-15:: Playful first: younger learners experience play, not study
+
+=== Curriculum Count Invariants
+
+[cols="1,2,2,2"]
+|===
+|Stage |Age Range |Lessons per Color |Total Lessons
+
+|Cuttle
+|8-12
+|20
+|140
+
+|Squidlet
+|13-14
+|30
+|210
+
+|Duet
+|15
+|10 (agent pairs)
+|70
+
+|Octopus
+|16+
+|Graduate projects
+|Variable
+|===
+
+=== Technical Invariants
+
+[horizontal]
+INV-30:: Primary language: ReScript (compiles to JS)
+INV-31:: Runtime: Deno (no Node.js/npm/bun)
+INV-32:: CLI tools: Rust only
+INV-33:: Mobile: Tauri 2.0+ or Dioxus (no Kotlin/Swift)
+INV-34:: Configuration: Nickel, Guile Scheme
+INV-35:: Package management: Guix (primary), Nix (fallback)
+INV-36:: Security: SHA256+ only, HTTPS only, no hardcoded secrets
+INV-37:: All source files require SPDX license headers
+
+=== Accessibility Invariants
+
+[horizontal]
+INV-40:: WCAG 2.1 AA compliance required
+INV-41:: All tabletop games must be print-and-play accessible
+INV-42:: Color is not sole indicator (patterns/shapes required)
+
+=== Governance Invariants
+
+[horizontal]
+INV-50:: Lead maintainer: Jonathan D.A. Jewell
+INV-51:: Contribution framework: TPCF (Think-Propose-Collaborate-Finalize)
+INV-52:: Review requires: automated checks + maintainer review + community feedback
+INV-53:: Acceptance criteria: goal alignment, code quality, documentation, accessibility
+
+== Compiler Role Summary
+
+[source]
+----
+┌─────────────────────────────────────────────────────────────┐
+│                    COMPILER PIPELINE                        │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  Source Code                                                │
+│      │                                                      │
+│      ▼                                                      │
+│  ┌─────────┐                                                │
+│  │ 🔴 RED  │  Parser: Lexing → Tokens → AST                 │
+│  └────┬────┘                                                │
+│       │                                                     │
+│       ▼                                                     │
+│  ┌─────────┐                                                │
+│  │🟡 YELLOW│  Type System: Type checking, inference        │
+│  └────┬────┘                                                │
+│       │                                                     │
+│       ▼                                                     │
+│  ┌─────────┐                                                │
+│  │🟢 GREEN │  AST Architect: IR construction, transforms   │
+│  └────┬────┘                                                │
+│       │                                                     │
+│       ▼                                                     │
+│  ┌─────────┐                                                │
+│  │🟣 INDIGO│  Metaprogrammer: Compile-time evaluation      │
+│  └────┬────┘                                                │
+│       │                                                     │
+│       ▼                                                     │
+│  ┌─────────┐                                                │
+│  │🔵 BLUE  │  Auditor: Verification, formal proofs         │
+│  └────┬────┘                                                │
+│       │                                                     │
+│       ▼                                                     │
+│  ┌─────────┐                                                │
+│  │🟠 ORANGE│  Concurrency: Parallel execution, scheduling  │
+│  └────┬────┘                                                │
+│       │                                                     │
+│       ▼                                                     │
+│  ┌─────────┐                                                │
+│  │🟤 VIOLET│  Governance: Language rules, policy           │
+│  └─────────┘                                                │
+│       │                                                     │
+│       ▼                                                     │
+│  Executable                                                 │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+----
+
+== Cross-References
+
+* link:../VISION.adoc[VISION.adoc] — Complete pedagogical framework
+* link:../ROADMAP.adoc[ROADMAP.adoc] — MVP progress and milestones
+* link:../GOVERNANCE.adoc[GOVERNANCE.adoc] — Decision-making processes
+* link:PEDAGOGY.adoc[PEDAGOGY.adoc] — Learning science foundation
