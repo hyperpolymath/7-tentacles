@@ -82,6 +82,57 @@ let celebrate = (): string => {
   personality.celebrations[idx]->Option.getOr(personality.catchphrase)
 }
 
+// Lesson definitions from curriculum/cuttle/yellow/
+let lessons: array<lesson> = [
+  {
+    id: "cuttle-yellow-01",
+    title: "Color Sorting",
+    agent: Yellow,
+    stage: Cuttle,
+    difficulty: Introductory,
+    description: "Learn to sort and organize things by color - the basics of classification",
+    objectives: [
+      "How to identify colors",
+      "How to sort into groups",
+      "Why organization matters",
+    ],
+    activities: [
+      {
+        activityId: "yellow-01-color-matching",
+        activityType: Puzzle({
+          puzzleType: "matching",
+          pieces: 4,
+          solution: "Apple=Red, Banana=Yellow, Blueberry=Blue, Lettuce=Green",
+        }),
+        instructions: "Look at these items. What color is each one? Match them!",
+        hints: ["Look at each item carefully", "Think about the color you see"],
+      },
+      {
+        activityId: "yellow-01-sort-shapes",
+        activityType: Game({
+          gameName: "Sorting Game",
+          rules: ["Drag each shape to the correct color bin", "Red shapes go in Red Bin", "Blue shapes go in Blue Bin"],
+          winCondition: "All shapes correctly sorted",
+        }),
+        instructions: "Drag each shape to the correct color bin!",
+        hints: ["Look at the color of each shape", "Match it to the bin with the same color"],
+      },
+      {
+        activityId: "yellow-01-doesnt-belong",
+        activityType: Puzzle({
+          puzzleType: "odd-one-out",
+          pieces: 4,
+          solution: "Lemon (yellow, not red)",
+        }),
+        instructions: "One of these is NOT like the others. Which item doesn't belong in the RED group?",
+        hints: ["Look for the item that's a different color", "The lemon stands out"],
+      },
+    ],
+    hiddenConcept: "Basic type classification",
+    revealedConcept: None,
+  },
+]
+
 // Create the complete agent definition
 let agent: agent = {
   color: Yellow,
@@ -89,7 +140,7 @@ let agent: agent = {
   compilerRole: "Type System - Ensures type safety and prevents errors at compile time",
   teaches,
   personality,
-  lessons: [], // Populated from curriculum files
+  lessons,
 }
 
 // Reveal text shown when transitioning stages

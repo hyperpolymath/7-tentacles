@@ -82,6 +82,57 @@ let celebrate = (): string => {
   personality.celebrations[idx]->Option.getOr(personality.catchphrase)
 }
 
+// Lesson definitions from curriculum/cuttle/green/
+let lessons: array<lesson> = [
+  {
+    id: "cuttle-green-01",
+    title: "Building Blocks",
+    agent: Green,
+    stage: Cuttle,
+    difficulty: Introductory,
+    description: "Learn the basics of construction - how small parts make bigger things",
+    objectives: [
+      "How small parts make bigger things",
+      "How to stack blocks",
+      "How to plan what you build",
+    ],
+    activities: [
+      {
+        activityId: "green-01-stack-blocks",
+        activityType: Game({
+          gameName: "Block Stacking",
+          rules: ["Stack three blocks vertically", "Each block goes on top of the previous", "Build upward"],
+          winCondition: "Create a stable 3-block tower",
+        }),
+        instructions: "Let's start simple. Stack three blocks to make a tower!",
+        hints: ["Start at the bottom", "Place each block carefully"],
+      },
+      {
+        activityId: "green-01-build-house",
+        activityType: Game({
+          gameName: "House Assembly",
+          rules: ["Place the base first", "Add walls on the base", "Add the roof on top"],
+          winCondition: "Complete house with base, walls, and roof",
+        }),
+        instructions: "A house has parts: a base, walls, and a roof. Build one!",
+        hints: ["Base goes at the bottom", "Walls go in the middle", "Roof goes on top"],
+      },
+      {
+        activityId: "green-01-build-order",
+        activityType: Puzzle({
+          puzzleType: "ordering",
+          pieces: 3,
+          solution: "Bottom (base) first, then middle, then top",
+        }),
+        instructions: "If we're building a tower, what order do we need? What do you build FIRST?",
+        hints: ["Think about gravity", "You can't build the roof first!"],
+      },
+    ],
+    hiddenConcept: "Composition and basic structure",
+    revealedConcept: None,
+  },
+]
+
 // Create the complete agent definition
 let agent: agent = {
   color: Green,
@@ -89,7 +140,7 @@ let agent: agent = {
   compilerRole: "AST Architect - Builds and transforms code representations",
   teaches,
   personality,
-  lessons: [], // Populated from curriculum files
+  lessons,
 }
 
 // Reveal text shown when transitioning stages

@@ -82,6 +82,66 @@ let celebrate = (): string => {
   personality.celebrations[idx]->Option.getOr(personality.catchphrase)
 }
 
+// Lesson definitions from curriculum/cuttle/violet/
+let lessons: array<lesson> = [
+  {
+    id: "cuttle-violet-01",
+    title: "Fair Games",
+    agent: Violet,
+    stage: Cuttle,
+    difficulty: Introductory,
+    description: "Learn about rules and fairness - why good rules make better games",
+    objectives: [
+      "What makes a game fair",
+      "Why rules are important",
+      "How to make good rules",
+    ],
+    activities: [
+      {
+        activityId: "violet-01-unfair-race",
+        activityType: Puzzle({
+          puzzleType: "judgment",
+          pieces: 2,
+          solution: "No, it's NOT fair",
+        }),
+        instructions: "Imagine a race where Player A starts at the finish line and Player B starts at the beginning. Is this race FAIR?",
+        hints: ["Think about who has the advantage", "Fair means equal starting points"],
+      },
+      {
+        activityId: "violet-01-make-fair",
+        activityType: Puzzle({
+          puzzleType: "solution",
+          pieces: 3,
+          solution: "Give everyone the same amount of candy to start",
+        }),
+        instructions: "A game where whoever has the most candy wins - but some kids started with more. How do we make it fair?",
+        hints: ["Everyone should start equal", "The rule should apply to everyone"],
+      },
+      {
+        activityId: "violet-01-good-rules",
+        activityType: Puzzle({
+          puzzleType: "selection",
+          pieces: 3,
+          solution: "Everyone gets one turn",
+        }),
+        instructions: "Which of these is a GOOD rule? 'Only tall people can play', 'Everyone gets one turn', or 'My friend always wins'?",
+        hints: ["Good rules include everyone", "Good rules give everyone a chance"],
+      },
+      {
+        activityId: "violet-01-create-rules",
+        activityType: Creative({
+          medium: "rule-design",
+          prompt: "Create fair rules for 'The Sharing Game': starting tokens, turn order, winning condition",
+        }),
+        instructions: "Let's make a simple game together! Add fair rules: everyone starts with 5 tokens, take turns clockwise, highest roll wins the round.",
+        hints: ["Equal starting resources", "Clear turn order", "Fair winning conditions"],
+      },
+    ],
+    hiddenConcept: "Rules and fairness in systems",
+    revealedConcept: None,
+  },
+]
+
 // Create the complete agent definition
 let agent: agent = {
   color: Violet,
@@ -89,7 +149,7 @@ let agent: agent = {
   compilerRole: "Governance System - Designs language rules and enforces ethical constraints",
   teaches,
   personality,
-  lessons: [], // Populated from curriculum files
+  lessons,
 }
 
 // Reveal text shown when transitioning stages

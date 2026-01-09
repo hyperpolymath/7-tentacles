@@ -82,6 +82,57 @@ let celebrate = (): string => {
   personality.celebrations[idx]->Option.getOr(personality.catchphrase)
 }
 
+// Lesson definitions from curriculum/cuttle/blue/
+let lessons: array<lesson> = [
+  {
+    id: "cuttle-blue-01",
+    title: "Mystery Intro",
+    agent: Blue,
+    stage: Cuttle,
+    difficulty: Introductory,
+    description: "Solve your first mystery using clues and logical deduction",
+    objectives: [
+      "How to gather clues",
+      "How to use clues to figure things out",
+      "How evidence points to answers",
+    ],
+    activities: [
+      {
+        activityId: "blue-01-gather-clues",
+        activityType: Game({
+          gameName: "Clue Finding",
+          rules: ["Examine the scene carefully", "Click on suspicious items", "Record each clue you find"],
+          winCondition: "Find all 3 clues",
+        }),
+        instructions: "The cookie jar is EMPTY! Examine the scene for clues. Look for crumbs, lid position, and chocolate stains.",
+        hints: ["Look at the floor", "Check the dog bed", "Look at Buddy's nose"],
+      },
+      {
+        activityId: "blue-01-interpret-clues",
+        activityType: Puzzle({
+          puzzleType: "deduction",
+          pieces: 3,
+          solution: "Crumbs lead to dog bed = dog carried cookie",
+        }),
+        instructions: "The crumbs lead to the dog bed. What does this mean?",
+        hints: ["Think about who would go to the dog bed", "Crumbs show where someone walked"],
+      },
+      {
+        activityId: "blue-01-solve-mystery",
+        activityType: Puzzle({
+          puzzleType: "conclusion",
+          pieces: 3,
+          solution: "Buddy the Dog",
+        }),
+        instructions: "Based on ALL the clues (crumbs to dog bed, chocolate on nose), who ate the last cookie?",
+        hints: ["Combine all the evidence", "Who do all clues point to?"],
+      },
+    ],
+    hiddenConcept: "Logical deduction basics",
+    revealedConcept: None,
+  },
+]
+
 // Create the complete agent definition
 let agent: agent = {
   color: Blue,
@@ -89,7 +140,7 @@ let agent: agent = {
   compilerRole: "Auditor - Verifies correctness and provides formal proofs",
   teaches,
   personality,
-  lessons: [], // Populated from curriculum files
+  lessons,
 }
 
 // Reveal text shown when transitioning stages
