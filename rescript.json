@@ -2,8 +2,12 @@
   "name": "7-tentacles",
   "sources": [
     {
-      "dir": "src",
-      "subdirs": true
+      "dir": "agents",
+      "subdirs": false
+    },
+    {
+      "dir": "tools",
+      "subdirs": false
     }
   ],
   "package-specs": [
@@ -13,7 +17,9 @@
     }
   ],
   "suffix": ".res.mjs",
-  "bs-dependencies": [],
+  "bs-dependencies": [
+    "@rescript/core"
+  ],
   "warnings": {
     "error": "+101"
   }
