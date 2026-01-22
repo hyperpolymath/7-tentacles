@@ -125,7 +125,7 @@ We welcome contributions! Please see our link:CONTRIBUTING.adoc[contribution gui
 
 == License
 
-This project is licensed under the GNU Affero General Public License v3.0 (AGPL-3.0).
+This project is licensed under the Palimpsest-MPL License v3.0 (PMPL-1.0).
 
 == Acknowledgments
 
